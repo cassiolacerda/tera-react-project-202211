@@ -34,7 +34,7 @@ export default function Home() {
         {users
           .sort((a, b) => a.fn.localeCompare(b.fn))
           .map((user) => (
-            <option value={user.id}>
+            <option key={user.id} value={user.id}>
               {user.fn} {user.ln}
             </option>
           ))}
