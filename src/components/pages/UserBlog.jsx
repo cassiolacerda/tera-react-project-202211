@@ -1,23 +1,14 @@
 import React from "react";
 
-import logo from "../../images/logo.svg";
 import user1 from "../../images/placeholders/user-1.jpg";
 import post1 from "../../images/placeholders/post-1.jpg";
 import post2 from "../../images/placeholders/post-2.jpg";
 import post3 from "../../images/placeholders/post-3.jpg";
+import Default from "../templates/Default";
 
 export default function UserBlog() {
   return (
-    <div className="wrapper">
-      <div className="app-header">
-        <div className="app-header__logo">
-          <img src={logo} className="responsive" alt="" />
-        </div>
-        <div className="app-header__menu">
-          <i className="fa fa-bars"></i>
-        </div>
-      </div>
-
+    <Default>
       <div className="user-blog">
         <div className="user-blog__header">
           <div className="user-blog__header-photo">
@@ -74,8 +65,6 @@ export default function UserBlog() {
           </div>
         </div>
       </div>
-
-      <div className="app-footer">Módulo React :: Full Stack Development</div>
-    </div>
+    </Default>
   );
 }
