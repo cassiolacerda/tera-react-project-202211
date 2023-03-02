@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom";
 import Default from "../templates/Default";
 import UserBio from "../molecules/UserBio";
 import PostListWrapper from "../molecules/PostListWrapper";
+import AppLoading from "../organisms/AppLoading";
 
 export default function UserBlog() {
   const { userId } = useParams();
 
   const [user, setUser] = React.useState({});
   const [posts, setPosts] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     const getApiData = async () => {
@@ -24,12 +26,15 @@ export default function UserBlog() {
 
       setUser(userResponse);
       setPosts(postsResponse);
+      setIsLoading(false);
     };
 
     getApiData();
   }, [userId]);
 
-  return (
+  return isLoading ? (
+    <AppLoading />
+  ) : (
     <Default>
       <div className="user-blog">
         <UserBio user={user} />
