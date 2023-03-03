@@ -4,11 +4,13 @@ import logo from "../../images/logo.svg";
 
 import AppLoading from "../organisms/AppLoading";
 
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 export default function Home() {
   const navigate = useNavigate();
 
   const [users, setUsers] = React.useState([]);
-  const [currentUser, setCurrentUser] = React.useState("");
+  const { currentUser, setCurrentUser } = React.useContext(CurrentUserContext);
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {

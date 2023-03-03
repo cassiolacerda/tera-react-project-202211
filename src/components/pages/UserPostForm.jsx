@@ -1,9 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import Default from "../templates/Default";
 import AppLoading from "../organisms/AppLoading";
 
 export default function UserPostForm() {
+  const { userId } = useParams();
+
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
@@ -13,7 +16,7 @@ export default function UserPostForm() {
 
     setIsLoading(true);
 
-    fetch("https://63cf09718a780ae6e6710dbe.mockapi.io/users/1/posts", {
+    fetch(`https://63cf09718a780ae6e6710dbe.mockapi.io/users/${userId}/posts`, {
       method: "POST",
       body: JSON.stringify({ title, content }),
       headers: { "Content-type": "application/json" },
