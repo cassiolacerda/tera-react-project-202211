@@ -1,0 +1,15 @@
+.appHeader {
+  display: flex;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.logo img {
+  max-width: 120px;
+}
+
+.menu {
+  font-size: 3em;
+}

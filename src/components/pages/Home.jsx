@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../images/logo.svg";
 
+import styles from "./Home.module.css";
+
 import AppLoading from "../organisms/AppLoading";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -29,11 +31,11 @@ export default function Home() {
   return isLoading ? (
     <AppLoading />
   ) : (
-    <div className="home center">
-      <div className="home__logo">
+    <div className={`${styles.home} center`}>
+      <div className={styles.logo}>
         <img src={logo} className="responsive" alt="" />
       </div>
-      <select onChange={handleUserChange} className="home__select-users">
+      <select onChange={handleUserChange} className={styles.selectUsers}>
         <option value="">Selecionar usuário</option>
         {users
           .sort((a, b) => a.fn.localeCompare(b.fn))
